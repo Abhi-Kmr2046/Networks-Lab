@@ -48,5 +48,6 @@ int main()
 	// 	printf("---------------------------\n");
 	// }
 	r_close(sockfd);
+	int hi;
 	return 0;
 }
