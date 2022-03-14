@@ -33,20 +33,20 @@ int main()
 	char input;
 	int len;
 
-	char buffer[100] = {0};
-	len = sizeof(src_addr);
-	int valread = recvfrom(sockfd, (char *)buffer, 100, 0, (struct sockaddr *)&src_addr, &len);
-	buffer[valread] = '\0';
-	printf("Recieved: %s\n", buffer);
+	// char buffer[100] = {0};
+	// len = sizeof(src_addr);
+	// int valread = recvfrom(sockfd, (char *)buffer, 100, 0, (struct sockaddr *)&src_addr, &len);
+	// buffer[valread] = '\0';
+	// printf("Recieved: %s\n", buffer);
 
-	// while(1){
-	// 	len = sizeof(src_addr);
-	// 	r_recvfrom(sockfd,&input,1,0,(struct sockaddr *)&src_addr,&len);
-	// 	printf("---------------------------\n");
-	// 	printf("Received %c\n",input);
-	// 	fflush(stdout);
-	// 	printf("---------------------------\n");
-	// }
+	while(1){
+		len = sizeof(src_addr);
+		r_recvfrom(sockfd,&input,1,0,(struct sockaddr *)&src_addr,&len);
+		printf("---------------------------\n");
+		printf("Received %c\n",input);
+		fflush(stdout);
+		printf("---------------------------\n");
+	}
 	r_close(sockfd);
 	return 0;
 }

@@ -36,18 +36,18 @@ int main()
 
     printf("Sender running\n");
 
-    r_sendto(sockfd, inp, strlen(inp) + 1, 0, (const struct sockaddr *)&dest_addr, sizeof(dest_addr));
+    // r_sendto(sockfd, inp, strlen(inp) + 1, 0, (const struct sockaddr *)&dest_addr, sizeof(dest_addr));
 
-    // int i, len = strlen(inp);
-    // for (i = 0; i < len; i++)
-    // {
-    //     int ret = r_sendto(sockfd, &inp[i], 1, 0, (struct sockaddr *)&dest_addr, sizeof(dest_addr));
-    //     if (ret < 0)
-    //     {
-    //         perror("Send error");
-    //         exit(1);
-    //     }
-    // }
+    int i, len = strlen(inp);
+    for (i = 0; i < len; i++)
+    {
+        int ret = r_sendto(sockfd, &inp[i], 1, 0, (struct sockaddr *)&dest_addr, sizeof(dest_addr));
+        if (ret < 0)
+        {
+            perror("Send error");
+            exit(1);
+        }
+    }
 
     r_close(sockfd);
 }
